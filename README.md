@@ -44,3 +44,5 @@ Frontend: HTML, CSS, JavaScript
 AI/ML: Google Gemini-2.0-flash-exp, HuggingFace Transformers
 
 Vector Database: FAISS
+
+demo:https://nepse-trading-bot-7.onrender.com/
