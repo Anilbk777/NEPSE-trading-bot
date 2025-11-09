@@ -256,7 +256,13 @@ async def get_indicators(symbol: str):
         "change_percent": safe_float(latest['diff %'])
     }
 
+# if __name__ == "__main__":
+#     import uvicorn
+#     uvicorn.run(app, host="0.0.0.0", port=8000)
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    import os
+    port = int(os.environ.get("PORT", 8000))  # <-- ✅ this line changed
+    uvicorn.run(app, host="0.0.0.0", port=port)
+
 
