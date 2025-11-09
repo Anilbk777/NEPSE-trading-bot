@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEPSE Trading Bot - AI-Powered Stock Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>NEPSE Trading Bot</h1>
+            <p class="subtitle">AI-Powered Stock Analysis with RAG Technology</p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Content Area (single column). Controls moved here and centered -->
+            <div class="controls-inner">
+                <div class="sidebar-section">
+                    <label for="stock-select">Select Stock Symbol</label>
+                    <div class="select-wrapper">
+                        <select id="stock-select">
+                            <option value="">Select a stock...</option>
+                        </select>
+                        <span class="select-icon">▼</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <label for="strategy-select">Trading Strategy</label>
+                    <div class="select-wrapper">
+                        <select id="strategy-select">
+                            <option value="multi-strategy">Multi-Strategy</option>
+                            <option value="trend-following">Trend Following</option>
+                            <option value="mean reversion">Mean Reversion</option>
+                            <option value="swing trading">Swing Trading</option>
+                            <option value="breakout/pullback">Breakout/Pullback</option>
+                        </select>
+                        <span class="select-icon">▼</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <button id="analyze-btn" class="btn-primary">🔍 Get AI Analysis</button>
+                </div>
+            </div>
+            <main class="content">
+                <div class="controls-box">
+                </div>
+                <!-- Analysis Section (moved below controls and above metrics) -->
+                <div id="analysis-section" class="analysis-container">
+                    <div class="section-header">
+                        <h2 >AI-Powered Trading Recommendation</h2>
+                    </div>
+
+                    <!-- Loading State -->
+                    <div id="loading-state" class="loading" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Analyzing stock data...</p>
+                    </div>
+
+                    <!-- Error State -->
+                    <div id="error-state" class="error-box" style="display: none;">
+                        <p id="error-message"></p>
+                    </div>
+
+                    <!-- Results -->
+                    <div id="results-container" style="display: none;">
+                        <!-- Stock Name Display -->
+                        <div class="stock-name-display">
+                            <h3>Analyzing: <span id="analyzed-stock-name">-</span></h3>
+                        </div>
+                        <!-- Technical Indicators -->
+                        <div id="indicators-section" class="indicators-grid">
+                            <h3>Current Technical Indicators</h3>
+                            
+                            <div class="indicators-row">
+                                <div class="indicator-card">
+                                    <h4> Moving Averages</h4>
+                                    <div class="indicator-item">
+                                        <span>MA20:</span>
+                                        <span id="ind-ma20">-</span>
+                                    </div>
+                                    <div class="indicator-item">
+                                        <span>MA50:</span>
+                                        <span id="ind-ma50">-</span>
+                                    </div>
+                                    <h4 style="margin-top: 15px;"> Price</h4>
+                                    <div class="indicator-item">
+                                        <span>Close:</span>
+                                        <span id="ind-close">-</span>
+                                    </div>
+                                    <div class="indicator-item">
+                                        <span>VWAP:</span>
+                                        <span id="ind-vwap">-</span>
+                                    </div>
+                                    <div class="indicator-item">
+                                        <span>Change:</span>
+                                        <span id="ind-change">-</span>
+                                    </div>
+                                </div>
+
+                                <div class="indicator-card">
+                                    <h4>Momentum</h4>
+                                    <div class="indicator-item">
+                                        <span>RSI:</span>
+                                        <span id="ind-rsi">-</span>
+                                    </div>
+                                    <div class="indicator-item">
+                                        <span>MACD:</span>
+                                        <span id="ind-macd">-</span>
+                                    </div>
+                                    <div class="indicator-item">
+                                        <span>Signal:</span>
+                                        <span id="ind-signal">-</span>
+                                    </div>
+                                    <div class="indicator-item">
+                                        <span>Trend:</span>
+                                        <span id="ind-trend">-</span>
+                                    </div>
+                                </div>
+
+                                <div class="indicator-card">
+                                    <h4>Bollinger Bands</h4>
+                                    <div class="indicator-item">
+                                        <span>Upper:</span>
+                                        <span id="ind-bb-upper">-</span>
+                                    </div>
+                                    <div class="indicator-item">
+                                        <span>Middle:</span>
+                                        <span id="ind-bb-middle">-</span>
+                                    </div>
+                                    <div class="indicator-item">
+                                        <span>Lower:</span>
+                                        <span id="ind-bb-lower">-</span>
+                                    </div>
+                                    <div class="indicator-item">
+                                        <span>Position:</span>
+                                        <span id="ind-bb-pos">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Analysis -->
+                        <div id="ai-analysis-section" class="ai-analysis">
+                            <h3> AI Analysis & Recommendation</h3>
+                            <div id="ai-analysis-content" class="analysis-content"></div>
+                        </div>
+
+                       
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

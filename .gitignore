@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+myenv/
+
+# Env files
+.env
+
+# Data / vectorstore (optional, if large)
+data/processed/
+vectorstore/
+
+# IDE
+.vscode/
+
+requirements1.txt
+
+data
