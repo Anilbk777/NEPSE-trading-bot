@@ -1,5 +1,6 @@
 // API Configuration
-const API_URL = 'http://localhost:8000';
+// const API_URL = 'http://localhost:8000';
+const API_URL = window.location.origin;
 
 // State
 let currentStock = null;
